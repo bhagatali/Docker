@@ -1,0 +1,6 @@
+fortify_license_path=/opt/fortify/fortify.license
+UpdateProxyServer=http://proxy/server
+UpdateProxyPort=8000
+MigrateSCA=0
+installdir=/opt/fortify/
+

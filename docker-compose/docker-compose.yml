@@ -1,0 +1,112 @@
+mcac_gateway:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/mcacGateway.jar
+    ports:
+     - "8580:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_gateway
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+mcac_mapper:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/mcacMapper.jar
+    ports: 
+     - "8581:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_mapper
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+form_data:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/formData.jar
+    ports:
+     - "8582:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: form_data
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+form_schema:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/formSchema.jar
+    ports:
+     - "8583:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: form_schema
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+mcac_form:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/mcacForm.jar
+    ports:
+     - "8584:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_form
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+mcac_appl:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/mcacAppl.jar
+    ports:
+     - "8585:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_appl
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+appl_data:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/applData.jar
+    ports:
+     - "8586:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: appl_data
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+mcac_batch:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/mcacBatch.jar
+    ports:
+     - "8587:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_batch
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+mcac_cust:
+    image: ${IMAGE}
+    command: java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Duser.timezone=${TIMEZONE} /home/services/mcacCust.jar
+    ports:
+     - "8588:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_cust
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+mcac_soap:
+    image: ${IMAGE}
+    command: java -jar -Duser.timezone=${TIMEZONE} /home/services/mcacSoap.jar
+    ports:
+     - "8589:8080"
+    volumes:
+     - /home/ISDGOVWF/build-MCA:/home/services
+     - /MCAC:/MCAC
+    container_name: mcac_soap
+    restart: on-failure:${RESTART_ATTEMPTS}
+
+
+

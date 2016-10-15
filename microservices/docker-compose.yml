@@ -1,0 +1,113 @@
+ali_gateway:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/aliGateway.jar
+    ports:
+     - "8580:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_gateway
+    restart: on-failure:5
+
+ali_mapper:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/aliMapper.jar
+    ports: 
+     - "8581:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_mapper
+    restart: on-failure:5
+
+form_data:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/formData.jar
+    ports:
+     - "8582:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: form_data
+    restart: on-failure:5
+
+form_schema:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/formSchema.jar
+    ports:
+     - "8583:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: form_schema
+    restart: on-failure:5
+
+ali_form:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/aliForm.jar
+    ports:
+     - "8584:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_form
+    restart: on-failure:5
+
+ali_appl:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/aliAppl.jar
+    ports:
+     - "8585:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_appl
+    restart: on-failure:5
+
+appl_data:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/applData.jar
+    ports:
+     - "8586:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: appl_data
+    restart: on-failure:5
+
+ali_batch:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/aliBatch.jar
+    ports:
+     - "8587:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_batch
+    restart: on-failure:5
+
+ali_cust:
+    image: alpine_jre
+    command: java -jar -Dspring.profiles.active=dev -Duser.timezone=EST /home/services/aliCust.jar
+    ports:
+     - "8588:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_cust
+    restart: on-failure:5
+
+ali_soap:
+    image: alpine_jre
+    command: java -jar -Duser.timezone=EST /home/services/aliSoap.jar
+    ports:
+     - "8589:8080"
+    volumes:
+     - /home/USER/build-ALI:/home/services
+     - /ali:/ali
+    container_name: ali_soap
+    restart: on-failure:5
+
+
+
+
